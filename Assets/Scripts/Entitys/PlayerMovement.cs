@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : EntityStats
+public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D myRB;
+    float speed;
 
     // Start is called before the first frame update
     void Start()
     {
+        speed = this.gameObject.GetComponent<EntityStats>().speed;
         myRB = this.gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Movement();
     }
